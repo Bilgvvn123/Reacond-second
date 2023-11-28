@@ -1,0 +1,44 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+h1 {
+	font-size: 36px;
+	color: rgb(255, 101, 80);
+	font-weight: normal;
+	margin-left: 50px;
+}
+.Hello {
+	margin: 10px 30px;
+	display: flex;
+}
+.Sidebar {
+	margin-top: 30px;
+	width: 400px;
+}
+.Sidebar p {
+	background: #158cba;
+	padding: 10px 15px;
+	color: #fff;
+	border-radius: 3px;
+}
+.Sidebar div {
+	margin-left: 20px;
+	padding: 15px;
+}
+.Sidebar input {
+	display: block;
+	margin-top: 10px;
+}
+.Sidebar label span {
+	color: #158cba;
+	font-weight: bolder;
+}
+.Content {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
