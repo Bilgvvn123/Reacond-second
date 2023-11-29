@@ -1,10 +1,12 @@
 import React from "react";
+
 import BoxShadow from "./components/BoxShadow";
+import TodoWrapper from "./components/TodoWrapper";
 
 const App2 = () => {
 	return (
-		<div>
-			<BoxShadow />
+		<div style={{ display: "flex", justifyContent: "center" }}>
+			<TodoWrapper />
 		</div>
 	);
 };
