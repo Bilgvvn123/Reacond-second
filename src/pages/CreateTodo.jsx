@@ -2,14 +2,20 @@ import React, { useState } from "react";
 
 import Todo from "../components/Todo";
 
-const CreateTodo = () => {
+const CreateTodo = ({ todos, setTodos, limitedTodos }) => {
 	const [todo, setTodo] = useState("");
-	const [completed, setCompleted] = useState(false);
-	const [todos, setTodos] = useState([]);
 
 	const BabugiinAddFunc = () => {
+		console.log(new Date());
 		if (todo.length !== 0) {
-			setTodos([...todos, todo]);
+			setTodos([
+				...todos,
+				{
+					todo,
+					id: Math.floor(Math.random() * 100000),
+					completed: false,
+				},
+			]);
 
 			// reset input
 			setTodo("");
@@ -17,32 +23,6 @@ const CreateTodo = () => {
 			alert("Ta utgaa oruulna uu!");
 		}
 	};
-
-	const deleteTodo = (todo) => {
-		const x = [];
-
-		todos.forEach((t) => {
-			if (t !== todo) x.push(t);
-		});
-
-		setTodos(x);
-	};
-
-	const complete = () => {
-		console.log("completed");
-	};
-
-	const limitedTodos = () => {
-		const limitedTs = [];
-		todos.forEach((t, i) => {
-			if (i < 5)
-				limitedTs.push(<Todo todo123={t} deleteTodo={deleteTodo} />);
-		});
-
-		return limitedTs;
-	};
-
-	console.log(limitedTodos());
 
 	return (
 		<div
@@ -114,7 +94,7 @@ const CreateTodo = () => {
 			>
 				{/* Todo */}
 
-				<div>{limitedTodos()}</div>
+				<div>{limitedTodos("limit")}</div>
 			</div>
 		</div>
 	);

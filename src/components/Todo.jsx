@@ -1,6 +1,7 @@
 import React from "react";
+import "./todo.css";
 
-const Todo = ({ todo123, complete, deleteTodo }) => {
+const Todo = ({ todo123, completed, deleteTodo }) => {
 	return (
 		<div
 			style={{
@@ -16,7 +17,10 @@ const Todo = ({ todo123, complete, deleteTodo }) => {
 				alignItems: "center",
 			}}
 		>
-			<span>{todo123}</span>
+			{/* Todo */}
+			<span className={todo123.completed ? "completed" : ""}>
+				{todo123.todo}
+			</span>
 			<div
 				style={{
 					display: "flex",
@@ -30,7 +34,7 @@ const Todo = ({ todo123, complete, deleteTodo }) => {
 						color: "#fff",
 						padding: "3px 5px",
 					}}
-					onClick={() => deleteTodo(todo123)}
+					onClick={() => deleteTodo(todo123.id)}
 				>
 					delete
 				</button>
@@ -46,15 +50,17 @@ const Todo = ({ todo123, complete, deleteTodo }) => {
 				</button>
 				<span
 					style={{
-						background: "gray",
+						background: todo123.completed ? "#355E3B" : "gray",
 						border: "none",
 						color: "#fff",
 						padding: "3px 5px",
 						marginRight: "10px",
 					}}
-					onClick={complete}
+					onClick={() =>
+						completed(todo123.id, todo123.todo, todo123.completed)
+					}
 				>
-					Uncompleted
+					{todo123.completed ? "completed" : "Uncompleted"}
 				</span>
 			</div>
 		</div>
