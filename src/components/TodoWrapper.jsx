@@ -16,9 +16,18 @@ import { Routes, Route, Link } from "react-router-dom";
 import CreateTodo from "../pages/CreateTodo";
 import Todos from "../pages/Todos";
 import Todo from "./Todo";
+import EditTodo from "../pages/EditTodo";
 
 const TodoWrapper = () => {
-	const [todos, setTodos] = useState(JSON.parse(localStorage["todos"]) || []);
+	const [todos, setTodos] = useState([]);
+
+	useEffect(() => {
+		if (!localStorage["todos"]) {
+			localStorage["todos"] = "[]";
+		} else {
+			setTodos(JSON.parse(localStorage["todos"]));
+		}
+	}, []);
 
 	useEffect(() => {
 		localStorage["todos"] = JSON.stringify(todos);
@@ -107,6 +116,8 @@ const TodoWrapper = () => {
 						<Todos todos={todos} limitedTodos={limitedTodos} />
 					}
 				/>
+
+				<Route path="/edit/:todoId" element={<EditTodo />} />
 			</Routes>
 		</div>
 	);

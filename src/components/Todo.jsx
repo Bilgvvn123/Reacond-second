@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./todo.css";
 
 const Todo = ({ todo123, completed, deleteTodo }) => {
@@ -38,16 +40,18 @@ const Todo = ({ todo123, completed, deleteTodo }) => {
 				>
 					delete
 				</button>
-				<button
-					style={{
-						background: "green",
-						border: "none",
-						color: "#fff",
-						padding: "3px 5px",
-					}}
-				>
-					edit
-				</button>
+				<Link to={`/edit/${todo123.id}`}>
+					<button
+						style={{
+							background: "green",
+							border: "none",
+							color: "#fff",
+							padding: "3px 5px",
+						}}
+					>
+						edit
+					</button>
+				</Link>
 				<span
 					style={{
 						background: todo123.completed ? "#355E3B" : "gray",
