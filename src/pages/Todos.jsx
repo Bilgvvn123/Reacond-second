@@ -9,6 +9,7 @@ const Todos = ({ limitedTodos }) => {
 				{/* Todos */}
 				{limitedTodos()}
 			</div>
+			{/* <Hello todos/> */}
 		</div>
 	);
 };
