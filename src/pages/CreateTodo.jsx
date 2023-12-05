@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import Todo from "../components/Todo";
+import { TodoContext } from "../context/TodoContext";
 
-const CreateTodo = ({ todos, setTodos, limitedTodos }) => {
+const CreateTodo = () => {
+	const { todos, setTodos, limitedTodos } = useContext(TodoContext);
 	const [todo, setTodo] = useState("");
 
-	const BabugiinAddFunc = () => {
+	const BabugiinAddFunc = (e) => {
+		console.log(e);
 		console.log(new Date());
 		if (todo.length !== 0) {
 			setTodos([

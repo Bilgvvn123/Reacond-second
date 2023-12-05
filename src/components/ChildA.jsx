@@ -1,21 +1,31 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { createContext, useEffect, useState } from "react";
+import axios from "axios";
 import { ChildE } from "./ChildE";
-import TodoProvider from "../context/TodoContext";
 
-export const ChildContext = createContext();
-export const FatherContext = createContext();
+export const UserContext = createContext({});
 
 const ChildA = () => {
-	const [a, setA] = useState("Sain bnuu Child A-s mendcilj baina");
+	const [users, setUsers] = useState([]);
+
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const res = await axios.get(
+				"https://jsonplaceholder.typicode.com/users"
+			);
+
+			setUsers(res.data);
+			setLoading(false);
+		};
+
+		fetchData();
+	}, []);
 
 	return (
-		<TodoProvider>
-			<FatherContext.Provider value={{ hello: "hello" }}>
-				<ChildContext.Provider value={a}>
-					<ChildE />
-				</ChildContext.Provider>
-			</FatherContext.Provider>
-		</TodoProvider>
+		<UserContext.Provider value={{ users, loading }}>
+			<ChildE />
+		</UserContext.Provider>
 	);
 };
 

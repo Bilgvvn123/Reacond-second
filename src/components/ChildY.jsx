@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
-import { ChildContext } from "./ChildA";
-import { TodoContext } from "../context/TodoContext";
+import React, { useContext, useEffect } from "react";
+import { UserContext } from "./ChildA";
 
 export const ChildY = () => {
-	const a = useContext(TodoContext);
+	const { loading, users } = useContext(UserContext);
 
-	return <div>ChildY + {a}</div>;
+	return <div>{loading && "loading"}</div>;
 };

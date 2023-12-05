@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TodoContext } from "../context/TodoContext";
 
-const Todos = ({ limitedTodos }) => {
+const Todos = () => {
+	const { limitedTodos } = useContext(TodoContext);
+
 	return (
 		<div>
 			<h2>Todo lists</h2>
