@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import copy from "copy-to-clipboard";
 import "./boxshadow.css";
 
 const BoxShadow = () => {
@@ -11,6 +12,12 @@ const BoxShadow = () => {
 		opacity: 1,
 		inset: false,
 	});
+
+	const refText = useRef();
+
+	const copyText = () => {
+		copy(refText.current.textContent);
+	};
 
 	return (
 		<div>
@@ -148,7 +155,7 @@ const BoxShadow = () => {
 							className="box"
 						></div>
 
-						<div style={{ marginTop: "100px" }}>
+						<div ref={refText} style={{ marginTop: "100px" }}>
 							box-shadow: {boxShadow.x}px 10px 5px 0px
 							rgba(0,0,0,0.75);
 							<br />
@@ -157,6 +164,12 @@ const BoxShadow = () => {
 							<br /> -moz-box-shadow: 10px 10px 5px 0px
 							rgba(0,0,0,0.75);
 						</div>
+						<button
+							style={{ marginTop: "1rem", padding: "5px 10px" }}
+							onClick={() => copyText()}
+						>
+							copy
+						</button>
 					</div>
 				</div>
 			</div>
