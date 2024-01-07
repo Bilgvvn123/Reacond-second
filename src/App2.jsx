@@ -8,12 +8,15 @@ import ChildA from "./components/ChildA";
 
 const App2 = () => {
 	return (
-		<div style={{ display: "flex", justifyContent: "center" }}>
-			{/* <TodoWrapper /> */}
-			{/* <ChildA /> */}
-			{/* <Button style={{ color: "red" }}>Click</Button> */}
+		// <div style={{ display: "flex", justifyContent: "center" }}>
+		// 	{/* <TodoWrapper /> */}
+		// 	{/* <ChildA /> */}
+		// 	{/* <Button style={{ color: "red" }}>Click</Button> */}
 
-			<p className="text-3xl font-bold underline">Hello world!</p>
+		// 	<p className="text-3xl font-bold underline">Hello world!</p>
+		// </div>
+		<div>
+			<BoxShadow />
 		</div>
 	);
 };

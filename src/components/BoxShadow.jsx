@@ -9,7 +9,7 @@ const BoxShadow = () => {
 		spread: 1,
 		color: "#000",
 		opacity: 1,
-		inset: true,
+		inset: false,
 	});
 
 	return (
